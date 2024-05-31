@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thyroid-associated Ophthalmopathy Severity Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .calculator-frame {
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+            width: 80%;
+            max-width: 800px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .title-frame, .input-frame, .output-frame {
+            margin-bottom: 20px;
+        }
+        .title-frame {
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .input-frame, .output-frame {
+            border: 1px solid #007bff;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        .output-frame {
+            margin-top: 20px;
+        }
+        .input-group {
+            margin-bottom: 10px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .input-group input[type="radio"] {
+            margin-right: 10px;
+        }
+        .output-group {
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .input-columns {
+            display: flex;
+            justify-content: space-between;
+        }
+        .input-column {
+            width: 48%;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-frame">
+        <div class="title-frame">
+            Thyroid-associated Ophthalmopathy Severity Calculator
+        </div>
+        <div class="input-frame">
+            <div class="input-columns">
+                <div class="input-column">
+                    <h3>CAS Scoring</h3>
+                    <div class="input-group">
+                        <label>Spontaneous retrobulbar pain:</label>
+                        <input type="radio" name="cas_pain" value="1"> Yes
+                        <input type="radio" name="cas_pain" value="0" checked> No
+                    </div>
+                    <div class="input-group">
+                        <label>Pain on eye movement:</label>
+                        <input type="radio" name="cas_movement_pain" value="1"> Yes
+                        <input type="radio" name="cas_movement_pain" value="0" checked> No
+                    </div>
+                    <div class="input-group">
+                        <label>Redness of the eyelids:</label>
+                        <input type="radio" name="cas_eyelid_redness" value="1"> Yes
+                        <input type="radio" name="cas_eyelid_redness" value="0" checked> No
+                    </div>
+                    <div class="input-group">
+                        <label>Redness of the conjunctiva:</label>
+                        <input type="radio" name="cas_conjunctiva_redness" value="1"> Yes
+                        <input type="radio" name="cas_conjunctiva_redness" value="0" checked> No
+                    </div>
+                    <div class="input-group">
+                        <label>Swelling of the eyelids:</label>
+                        <input type="radio" name="cas_eyelid_swelling" value="1"> Yes
+                        <input type="radio" name="cas_eyelid_swelling" value="0" checked> No
+                    </div>
+                    <div class="input-group">
+                        <label>Swelling of the caruncle or conjunctival chemosis:</label>
+                        <input type="radio" name="cas_caruncle_swelling" value="1"> Yes
+                        <input type="radio" name="cas_caruncle_swelling" value="0" checked> No
+                    </div>
+                    <div class="input-group">
+                        <label>Increase in proptosis or decrease in ocular motility or decrease in visual acuity:</label>
+                        <input type="radio" name="cas_proptosis" value="1"> Yes
+                        <input type="radio" name="cas_proptosis" value="0" checked> No
+                    </div>
+                </div>
+                <div class="input-column">
+                    <h3>Modified NOSPECS Classification</h3>
+                    <div class="input-group">
+                        <label>Soft tissue involvement:</label>
+                        <input type="radio" name="nospecs_soft_tissue" value="0" checked> Absent
+                        <input type="radio" name="nospecs_soft_tissue" value="1"> Mild
+                        <input type="radio" name="nospecs_soft_tissue" value="2"> Moderate
+                        <input type="radio" name="nospecs_soft_tissue" value="3"> Severe
+                    </div>
+                    <div class="input-group">
+                        <label>Proptosis:</label>
+                        <input type="radio" name="nospecs_proptosis" value="0" checked> None
+                        <input type="radio" name="nospecs_proptosis" value="1"> Mild
+                        <input type="radio" name="nospecs_proptosis" value="2"> Moderate
+                        <input type="radio" name="nospecs_proptosis" value="3"> Severe
+                    </div>
+                    <div class="input-group">
+                        <label>Extraocular muscle involvement:</label>
+                        <input type="radio" name="nospecs_extraocular" value="0" checked> No limitation
+                        <input type="radio" name="nospecs_extraocular" value="1"> Limitation of motion in extremes of gaze
+                        <input type="radio" name="nospecs_extraocular" value="2"> Evident restriction of motion
+                        <input type="radio" name="nospecs_extraocular" value="3"> Fixation of the globe
+                    </div>
+                    <div class="input-group">
+                        <label>Corneal involvement:</label>
+                        <input type="radio" name="nospecs_corneal" value="0" checked> Normal
+                        <input type="radio" name="nospecs_corneal" value="1"> Stippling of cornea
+                        <input type="radio" name="nospecs_corneal" value="2"> Ulceration
+                        <input type="radio" name="nospecs_corneal" value="3"> Clouding, necrosis, or perforation
+                    </div>
+                    <div class="input-group">
+                        <label>Sight loss:</label>
+                        <input type="radio" name="nospecs_sight" value="0" checked> Normal acuity
+                        <input type="radio" name="nospecs_sight" value="1"> Decreased acuity, no visual field loss
+                        <input type="radio" name="nospecs_sight" value="2"> Field loss or early defect
+                        <input type="radio" name="nospecs_sight" value="3"> Advanced visual loss
+                    </div>
+                </div>
+            </div>
+            <button onclick="calculate()">Calculate</button>
+        </div>
+        <div class="output-frame">
+            <div class="subtitle">Calculation Results</div>
+            <div class="output-group">
+                <strong>CAS Score:</strong> <span id="cas-score">0</span>
+            </div>
+            <div class="output-group">
+                <strong>Severe Group (CAS >= 4):</strong> <span id="cas-severe">No</span>
+            </div>
+            <div class="output-group">
+                <strong>Modified NOSPECS Classification Score:</strong> <span id="nospecs-score">0</span>
+            </div>
+            <div class="output-group">
+                <strong>Severe Group (NOSPECS >= 7):</strong> <span id="nospecs-severe">No</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            let casScore = 0;
+            let nospecsScore = 0;
+
+            const casInputs = document.querySelectorAll('input[name^="cas_"]:checked');
+            const nospecsInputs = document.querySelectorAll('input[name^="nospecs_"]:checked');
+
+            casInputs.forEach(input => {
+                casScore += parseInt(input.value);
+            });
+
+            nospecsInputs.forEach(input => {
+                nospecsScore += parseInt(input.value);
+            });
+
+            const casSevere = casScore >= 4 ? "Yes" : "No";
+            const nospecsSevere = nospecsScore >= 7 ? "Yes" : "No";
+
+            document.getElementById('cas-score').innerText = casScore;
+            document.getElementById('cas-severe').innerText = casSevere;
+            document.getElementById('nospecs-score').innerText = nospecsScore;
+            document.getElementById('nospecs-severe').innerText = nospecsSevere;
+        }
+    </script>
+</body>
+</html>
