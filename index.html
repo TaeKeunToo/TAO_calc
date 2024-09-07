@@ -116,14 +116,14 @@
                         <input type="radio" name="cas_eyelid_swelling" value="0" checked> No
                     </div>
                     <div class="input-group">
-                        <label>Swelling of the caruncle or conjunctival chemosis:</label>
-                        <input type="radio" name="cas_caruncle_swelling" value="1"> Yes
-                        <input type="radio" name="cas_caruncle_swelling" value="0" checked> No
+                        <label>Swelling of the conjunctiva (chemosis):</label>
+                        <input type="radio" name="cas_chemosis" value="1"> Yes
+                        <input type="radio" name="cas_chemosis" value="0" checked> No
                     </div>
                     <div class="input-group">
-                        <label>Increase in proptosis or decrease in ocular motility or decrease in visual acuity:</label>
-                        <input type="radio" name="cas_proptosis" value="1"> Yes
-                        <input type="radio" name="cas_proptosis" value="0" checked> No
+                        <label>Swelling of the caruncle or plica:</label>
+                        <input type="radio" name="cas_caruncle_swelling" value="1"> Yes
+                        <input type="radio" name="cas_caruncle_swelling" value="0" checked> No
                     </div>
                 </div>
                 <div class="input-column">
@@ -173,7 +173,7 @@
                 <strong>CAS Score:</strong> <span id="cas-score">0</span>
             </div>
             <div class="output-group">
-                <strong>Severe Group (CAS >= 4):</strong> <span id="cas-severe">No</span>
+                <strong>Severe Group (CAS >= 3):</strong> <span id="cas-severe">No</span>
             </div>
             <div class="output-group">
                 <strong>Modified NOSPECS Classification Score:</strong> <span id="nospecs-score">0</span>
@@ -200,7 +200,7 @@
                 nospecsScore += parseInt(input.value);
             });
 
-            const casSevere = casScore >= 4 ? "Yes" : "No";
+            const casSevere = casScore >= 3 ? "Yes" : "No";
             const nospecsSevere = nospecsScore >= 7 ? "Yes" : "No";
 
             document.getElementById('cas-score').innerText = casScore;
